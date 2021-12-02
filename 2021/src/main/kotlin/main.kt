@@ -17,13 +17,17 @@ import androidx.compose.ui.window.application
 @Composable
 @Preview
 fun App() {
-    var text by remember { mutableStateOf("Run Challenge : Day 1") }
+    var day1 by remember { mutableStateOf("Run Challenge : Day 1") }
+    var day2 by remember { mutableStateOf("Run Challenge : Day 2") }
 
     MaterialTheme {
         Column(Modifier.fillMaxWidth()) {
             Text("Advent Of Code Challenge", modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally))
-            Button(onClick = { text = DayOneChallenge.runTask(Part.TWO) }){
-                Text(text)
+            Button(onClick = { day1 = DayOneChallenge.runTask(Part.TWO) }, modifier = Modifier.fillMaxWidth()) {
+                Text(day1)
+            }
+            Button(onClick = { day2 = DayTwoChallenge.runChallenge(Part.ONE) }, modifier = Modifier.fillMaxWidth()) {
+                Text(day2)
             }
         }
     }
