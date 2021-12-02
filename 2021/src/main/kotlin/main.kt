@@ -22,7 +22,7 @@ fun App() {
     MaterialTheme {
         Column(Modifier.fillMaxWidth()) {
             Text("Advent Of Code Challenge", modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally))
-            Button(onClick = { text = DayOneChallenge.runTask() }){
+            Button(onClick = { text = DayOneChallenge.runTask(Part.TWO) }){
                 Text(text)
             }
         }

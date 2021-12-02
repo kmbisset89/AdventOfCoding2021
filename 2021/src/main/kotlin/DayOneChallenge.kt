@@ -1,16 +1,35 @@
 import java.util.concurrent.atomic.AtomicInteger
 
 object DayOneChallenge {
-    fun runTask(): String {
-        val atomicInt = AtomicInteger(0)
-        for (i in data.indices) {
-            if (i != data.size-1 && data[i] < data[i + 1]) {
-                atomicInt.incrementAndGet()
+    fun runTask(part : Part): String {
+        return when(part){
+            Part.ONE -> {
+                val atomicInt = AtomicInteger(0)
+                for (i in data.indices) {
+                    if (i != data.size-1 && data[i] < data[i + 1]) {
+                        atomicInt.incrementAndGet()
+                    }
+                }
+                atomicInt.get().toString()
+            }
+            Part.TWO -> {
+                val atomicInt = AtomicInteger(0)
+                var tempHolder = 0
+                for (i in data.indices) {
+                    if (i < data.size-3) {
+                        val sum = data.subList(i, i+3).sum()
+                        if (tempHolder < sum) {
+                            atomicInt.incrementAndGet()
+                        }
+                        tempHolder = sum
+                    }
+                }
+                atomicInt.get().toString()
             }
         }
-        return atomicInt.get().toString()
     }
-    
+
+
     private val data = listOf(
         176,
         184,
